@@ -2,14 +2,19 @@ package gridObjects;
 
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
-public class GridSpaceship implements GridObject {
+import java.util.Random;
+
+public class GridSpaceship extends AbstractGridShip {
 
     private int locationX;
     private int locationY;
-    Spaceship baseShip;
+    ShipType baseShip;
+    private String name;
+    private long uid;
 
-    public GridSpaceship(Spaceship baseShip){
+    public GridSpaceship(ShipType baseShip, String name, int uid){
         this.baseShip = baseShip;
+        this.uid = uid;
     }
 
     public int getX() {
@@ -34,5 +39,10 @@ public class GridSpaceship implements GridObject {
 
     public int getSizeY() {
         throw new NotImplementedException();
+    }
+
+    @Override
+    public String getDrawSource() {
+        return name + " / " + baseShip.getShipClass();
     }
 }

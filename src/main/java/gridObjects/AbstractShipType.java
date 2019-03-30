@@ -2,7 +2,7 @@ package gridObjects;
 
 import java.util.List;
 
-public abstract class AbstractSpaceship implements GridObject, Spaceship{
+public abstract class AbstractShipType implements ShipType {
 
     //private String shipName;
     private String shipClass;
@@ -16,7 +16,7 @@ public abstract class AbstractSpaceship implements GridObject, Spaceship{
     private int skeletonCrew;
     private int crewQuality;
     private int troops;
-    private Spaceship craftClass;
+    private ShipType craftClass;
     private int craftFlights;
     private List<SpecialShipTrait> traits;
     private int serviceYear;
@@ -110,11 +110,11 @@ public abstract class AbstractSpaceship implements GridObject, Spaceship{
         this.troops = troops;
     }
 
-    public Spaceship getCraftClass() {
+    public ShipType getCraftClass() {
         return craftClass;
     }
 
-    public void setCraftClass(Spaceship craftClass) {
+    public void setCraftClass(ShipType craftClass) {
         this.craftClass = craftClass;
     }
 
@@ -148,6 +148,10 @@ public abstract class AbstractSpaceship implements GridObject, Spaceship{
 
     public void setWeapons(List<Weapon> weapons) {
         this.weapons = weapons;
+    }
+
+    public ObjectDrawType objectDrawType(){
+        return ObjectDrawType.Text;
     }
 
 }
